@@ -1,0 +1,33 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.licensePlate {
+    /* background: url(formPlate.png) no-repeat scroll 7px 7px; */
+    padding: 6px;
+    font-size: 22px;
+    border-width: 5px;
+    border-color: #000000;
+    background-color: #ffca11;
+    color: #000000;
+    border-style: double;
+    border-radius: 9px;
+    box-shadow: 0px 0px 14px rgba(66, 66, 66, 0.75);
+    text-shadow: 4px 0px 5px rgba(66, 66, 66, 0.75);
+}
+
+.licensePlate:focus {
+    outline: none;
+}
+
+.serch {
+    /* background: url(find.png) no-repeat scroll 7px 7px; */
+}
