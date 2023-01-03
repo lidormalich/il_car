@@ -5,6 +5,7 @@ import './App.css';
 import About from './components/About';
 import ILcars from './components/ILcars';
 import NavBar from './components/NavBar';
+import Showcar from './components/ShowCar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ILcars />} />
           <Route path='/about' element={<About />} />
+          <Route path='/car' element={<Showcar />} />
 
 
         </Routes>

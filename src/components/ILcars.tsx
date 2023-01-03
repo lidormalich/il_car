@@ -23,28 +23,24 @@ export default function ILcars() {
         if (res.data.success) {
 
           dispatch(setCar(res.data.result.records));
-          console.log(555555555555);
-          console.log(car);
+
         }
 
         // setCarData(res.data.result.records);
-        // navigation();
-        // <Showcar data={carData} />
+        navigation('/car');
+        // <Showcar />
       })
   }
   return (
     <div>
       <h1 >ברוכים הבאים לאתר למציאת מידע על הרכב</h1>
       <div className="d-flex justify-content-center">
-        <input name="carId" type="number" maxLength={8} value="8266376" className="licensePlate" onChange={(e) => { setCarNumber(e.target.value) }} />
         <button type="button" className="btn btn-warning mx-1" onClick={() => getData()}>
           <i className="fa-sharp fa-solid fa-magnifying-glass">חפש מידע על הרכב</i>
         </button>
-      </div>
-      <button onClick={() => {
-        console.log(car);
+        <input name="carId" type="number" maxLength={8} placeholder="8266376" className="licensePlate" onChange={(e) => { setCarNumber(e.target.value) }} />
 
-      }}>oo</button>
+      </div>
     </div>
   )
 }
