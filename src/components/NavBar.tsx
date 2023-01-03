@@ -9,10 +9,10 @@ const NavBar: FunctionComponent<NavBarProps> = () => {
     return (<>
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
-                <NavLink className="navbar-brand" to="/">
-                    <img src="/popcorn.png" alt="popcorn" width={50} />
-                    IL Cars
+            <div className="container-fluid d-flex">
+                <NavLink className="navbar-brand " to="/">
+                    <img src="/logoNew.png" alt="popcorn" width={50} />
+                    <span className=" justify-content-center align-items-center">IL Cars</span>
                 </NavLink>
                 <button
                     className="navbar-toggler"
@@ -31,11 +31,11 @@ const NavBar: FunctionComponent<NavBarProps> = () => {
                                 Home
                             </NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link" to="/TopSeries">
                                 Top Series
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/about">
                                 About
