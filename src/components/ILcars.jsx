@@ -20,6 +20,7 @@ export default function ILcars() {
               <i className="fa-sharp fa-solid fa-magnifying-glass">חפש מידע על הרכב</i>
               </button>
         </div>
+        {/* <p>car ID= {data}</p> */}
     </div>
   )
 }
