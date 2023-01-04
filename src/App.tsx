@@ -19,8 +19,6 @@ function App() {
           <Route path='/' element={<ILcars />} />
           <Route path='/about' element={<About />} />
           <Route path='/car' element={<Showcar />} />
-
-
         </Routes>
       </BrowserRouter>
     </>

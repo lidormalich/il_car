@@ -22,39 +22,13 @@ input[type=number] {
     border-radius: 9px;
     box-shadow: 0px 0px 14px rgba(66, 66, 66, 0.75);
     text-shadow: 4px 0px 5px rgba(66, 66, 66, 0.75);
-
-
-
-}
-
-/* .licensePlate {
-    color: rgba(0, 0, 0, .87);
-    border-bottom-color: rgba(0, 0, 0, .42);
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: .009375em;
-    text-decoration: inherit;
-    text-transform: inherit;
-    align-self: flex-end;
+    padding-left: 50px;
+    max-width: 250px;
+    letter-spacing: 5.5px;
     box-sizing: border-box;
-    width: 100%;
-    padding: 20px 16px 6px;
-    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    border-bottom: 1px solid;
-    border-radius: 4px 4px 0 0;
-    background: rgb(245, 245, 245);
-    height: 56px;
-}
 
-.licensePlate:hover {
-    border-bottom-color: rgba(0, 0, 0, .87);
-    background: #ececec;
-}
 
-.licensePlate:focus {
-    border-color: #6200ee;
-} */
+}
 
 .licensePlate:focus {
     outline: none;
