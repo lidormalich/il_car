@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CarData from "../interfaces/CarData";
 
 interface ShowcarProps {
@@ -13,21 +13,35 @@ const Showcar: FunctionComponent<ShowcarProps> = () => {
     const carState = useLocation();
     const car = carState.state;
 
-
     let [tagData, setTagData] = useState<any>([]);
-    // console.log(car);
     let checkCar = () => {
-        if (!car) return (<>
-            <h1>NOT FOUND</h1>
-        </>)
+        console.log("5555555 A");
+
+        console.log(car);
+
+        if (!car || car == null) {
+            console.log("Enter");
+            return (<>
+                <h1>NOT FOUND</h1>
+                {console.log("ERROR Enter")}
+            </>)
+        }
     }
 
-    checkCar()
+    checkCar();
+
+    let getTagDateInString = (dateItemToSplite: string) => {
+        let m: string, d: string, y: string;
+        y = dateItemToSplite.slice(0, 4);
+        m = dateItemToSplite.slice(4, 6);
+        d = dateItemToSplite.slice(6, 8);
+        return `תאריך הפקת תו נכה ${d}/${m} בשנת ${y}`;
+    }
 
     useEffect(() => {
         axios.get(`http://data.gov.il/api/3/action/datastore_search?resource_id=c8b9f9c8-4612-4068-934f-d4acd2e3c06e&limit=1&q=${car[0].mispar_rechev}`)
             .then((res) => {
-                console.log(res.data.result.records);
+                // console.log(res.data.result.records);
                 if (res.data.success && res.data.result.records.length != 0) {
                     setTagData([true, res.data.result.records[0]["TAARICH HAFAKAT TAG"]]);
                 } else {
@@ -36,8 +50,11 @@ const Showcar: FunctionComponent<ShowcarProps> = () => {
             })
     }, [])
 
+    let recallResourceID = '36bf1404-0be4-49d2-82dc-2f1ead4a8b93' // the resource id
+
 
     return (<>
+
         <div className="container " dir="rtl">
             <div className="card mb-3" >
                 <div className="row g-0">
@@ -52,10 +69,15 @@ const Showcar: FunctionComponent<ShowcarProps> = () => {
                                 <li className="list-group-item">שלדה: {car[0].misgeret}</li>
                                 <li className="list-group-item">טסט עד: {car[0].tokef_dt}</li>
                                 <li className="list-group-item">מועד עליה לכביש: {car[0].moed_aliya_lakvish}</li>
-                                <li className="list-group-item">{tagData[0] === true ? (<div>
-                                    תג נכה:✅
-                                    <p>תאריך הפקת תו נכה {tagData[1]}</p>
-                                </div>) : (<div>תג נכה: ללא❌</div>)}</li>
+                                <li className="list-group-item">
+                                    <i className="fa-solid fa-wheelchair" style={{ color: "blue" }}></i>
+                                    {tagData[0] === true ? (<div>
+                                        תג נכה:✅ בתוקף
+                                        <p>{getTagDateInString(tagData[1])}</p>
+                                    </div>) : (<div>תג נכה: ללא❌</div>)}</li>
+
+                                <li className="list-group-item">קבוצת זיהום: {car[0].kvutzat_zihum}</li>
+                                <li className="list-group-item">רוחב צמיג קדמי {car[0].zmig_kidmi} רוחב צמיג אחורי: {car[0].zmig_ahori}</li>
                                 <li className="list-group-item">{car[0].running ? (<div>Runing:✅ </div>) : (<div>Runing: ❌</div>)}</li>
                             </ul>
                             <p className="card-text"><small className="text-muted">{car[0].name} from  {car[0].startYear}</small></p>
@@ -67,7 +89,6 @@ const Showcar: FunctionComponent<ShowcarProps> = () => {
                 </div>
             </div>
         </div>
-
 
     </>);
 }

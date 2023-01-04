@@ -21,6 +21,8 @@ export default function ILcars() {
         if (res.data.success && res.data.result.records.length != 0) {
           console.log("CAR OK");
           // dispatch(setCar(res.data.result.records));
+          console.log(res.data.result.records[0]);
+
 
           navigation('/car', { state: res.data.result.records });
           // window.location.href = "/car";
