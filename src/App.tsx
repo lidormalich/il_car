@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import About from './components/About';
+import Footer from './components/Footer';
 import ILcars from './components/ILcars';
 import NavBar from './components/NavBar';
-import Showcar from './components/ShowCar';
+import ShowCar from './components/ShowCar';
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <header>
           <NavBar />
@@ -18,8 +20,12 @@ function App() {
         <Routes>
           <Route path='/' element={<ILcars />} />
           <Route path='/about' element={<About />} />
-          <Route path='/car' element={<Showcar />} />
+          <Route path='/car' element={<ShowCar />} />
         </Routes>
+        <footer>
+          <Footer />
+        </footer>
+
       </BrowserRouter>
     </>
   );
